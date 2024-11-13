@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+    *{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100%;
+}
+.container>.sidebar{
+    width: 20%;
+    height: 100%;
+    background:linear-gradient(30deg,blue,red);
+    position: fixed;
+    left: -350;
+}
+.container>.sidebar>h1{
+    margin-top: 50px;
+    text-align: center;
+    user-select: none;
+}
+.container>.sidebar>ul{
+    list-style: none;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* SCSS */
+    & a{
+        text-decoration:none;
+        color:antiquewhite;
+        font-size: 26px;
+        position: relative;
+    }
+    & a::after{
+        position: absolute;
+        content: "";
+        top: 30px;
+        right: 0;
+        width: 0;
+        height: 2px;
+        background-color: magenta;
+        transition: 1s ease-in-out;
+    }
+    & a:hover{
+    color :black
+    }
+}
+.container>.sidebar>ul>li:hover>a::after{
+    width: 100%;
+    transition: 1s ease-in-out;;
+}
+.container>#check{
+    display: none;
+}
+.container>#check:checked ~ .sidebar{
+    left:0;
+    transition:all.5s ease;
+}
+.container>label>.list{
+    position:absolute;
+    transition: all .5s ease;
+    left: 0;
+    font-size: 36px;
+    font-weight: 800px;
+    opacity:1;
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 1px 5px #161018 ;
+    margin: 20px 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container>label>.x{
+    position: absolute;
+    transition: all .5s ease;
+    left: 0;
+    font-size: 36px;
+    font-weight: 800;
+    opacity: 0;
+    visibility: hidden;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 1px 5px #161018  ;
+    margin: 20px 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container>#check:checked ~ label>.x{
+    left:280px ;
+    transition: all .5s ease;
+    opacity: 1;
+    visibility: visible;
+}
+.container>#check:checked ~ label>.list{
+    left:280px ;
+    transition: all .5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+</style>
+<body>
+    <div class="container">
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="bi bi-list list"></i>
+            <i class="bi bi-x-lg x"></i>
+        </label>
+        <div class="sidebar">
+            <h1>side Bar</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Content</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contect</a></li>
+            </ul>
+        
+        </div>
+    </div>
+</body>
+</html>
